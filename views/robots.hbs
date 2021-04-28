@@ -1,0 +1,13 @@
+<div>
+
+    <h1>{{title}}</h1>
+    <p>Welcome to {{title}}</p>
+</div>
+<div x-data="{robots: []}" x-init="fetch('https://jsonplaceholder.typicode.com/users')
+.then(response => response.json())
+.then(users => {robots = users})">
+
+<template x-for="robot in robots" :key="robot.id">
+    <div x-text="robot.name" class="text-xs mt-2 font-medium w-full mr-2 rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm" ></div>
+</template>
+</div>
